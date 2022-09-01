@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     public List<String> userLogin(UserDto userDto)
     {
         List<String> response = new ArrayList<>();
-        Optional<User> userOptional = userRepository.findByUserName(userDto.getUsername());
+        Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
 
         if(userOptional.isPresent())
         {

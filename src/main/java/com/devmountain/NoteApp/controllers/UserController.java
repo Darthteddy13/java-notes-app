@@ -24,6 +24,15 @@ public class UserController {
     @PostMapping("/register")
     public List<String> addUser(@RequestBody UserDto userDto)
     {
-    return null;
+        String passHash = passwordEncoder.encode(userDto.getPassword());
+        userDto.setPassword(passHash);
+        return userService.addUser(userDto);
     }
+
+    @PostMapping("/login")
+    public List<String> userLogin(@RequestBody UserDto userDto)
+    {
+        return userService.userLogin(userDto);
+    }
+
 }
