@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.saveAndFlush(user);
 
-        response.add("User added successfully");
+        response.add("http://localhost:8080/login.html");
         return response;
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         {
             if(passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword()))
             {
-                response.add("User Login Successful");
+                response.add("http://localhost:8080/home.html");
                 response.add(String.valueOf(userOptional.get().getId()));
             }
 
